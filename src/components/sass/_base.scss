@@ -1,0 +1,63 @@
+// COLORS
+$color-primary: #e2b060;
+$color-primary-dark: #b9904e;
+$color-primary-light: #f0ba64;
+
+$color-white: #fff;
+$color-black: #000;
+
+$color-grey-light-1: #faf9f9;
+$color-grey-light-2: #f4f2f2;
+$color-grey-light-3: #f0eeee;
+$color-grey-light-4: #ccc;
+
+$color-grey-dark-1: #333;
+$color-grey-dark-2: #777;
+$color-grey-dark-3: #999;
+
+.heading-h3 {
+    font-size: 2.5rem;
+    color: $color-primary-dark;
+    border-bottom: 1px solid $color-primary-dark;
+    padding: 1.2rem;
+    text-align: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+    --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+}
+
+::selection {
+    color: $color-white;
+    background: $color-primary;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10px
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana,
+        sans-serif;
+    background-color: $color-primary;
+    padding: 2rem;
+}
+
+.container {
+    background-color: $color-white;
+}
+
+.logo {
+    height: 10rem;
+    margin-left: 5rem;
+}
