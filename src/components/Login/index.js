@@ -1,24 +1,30 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
-// import { useHistory } from 'react-router'
+//import axios from 'axios';
+import { useHistory } from 'react-router'
 
 import LoginView from './view';
 
 export default function Login() {
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [state, setState] = useState({
+    username: '',
+    password: ''
+  });
 
-  const onSubmit = () => {
-    console.log("username", username);
-    console.log("password", password)
+  const handleChange = (prop) => (event) => {
+    setState({ ...state, [prop]: event.target.value });
+  };
+
+  const handleSubmit = () => {
+    console.log("username", state.username);
+    console.log("password", state.password)
   }
 
   return (
-  <LoginView
-    setUsername={setUsername}
-    setPassword={setPassword}
-    onSubmit={onSubmit}
-  />
+    <LoginView
+      state={state}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+    />
   )
 }

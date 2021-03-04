@@ -46,20 +46,11 @@ const useStyles = makeStyles({
 });
 
 function LoginView({ 
-    setUsername, 
-    setPassword, 
-    onSubmit
+    state, 
+    handleChange, 
+    handleSubmit
   }) {
   const classes = useStyles();
-
-  const onChangeInput = (event) => {
-    if(event?.target?.id === 'username') {
-      setUsername(event.target.value);
-    }
-    else if(event?.target?.id === 'password') {
-      setPassword(event.target.value);
-    }
-  }
 
   return (
     <div className="App">
@@ -70,24 +61,24 @@ function LoginView({
           Admin Login
         </Typography>
         <br />
-        <TextField 
-          id="username" 
-          label="Username" 
-          variant="standard"
+        <TextField
+          id="username"
+          label="Username"
+          value={state?.username}
+          onChange={handleChange('username')}
           className={classes.loginInput}
-          onChange={onChangeInput} 
         />
         <TextField 
           id="password" 
           label="Password" 
-          variant="standard"
+          type="password"
+          onChange={handleChange('password')} 
           className={classes.loginInput}
-          onChange={onChangeInput} 
         />
         <br />
         <Button
           variant="contained"
-          onClick={onSubmit}
+          onClick={handleSubmit}
           className={classes.button}
         >
           Login
