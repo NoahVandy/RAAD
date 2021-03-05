@@ -1,11 +1,6 @@
-import '../../App.css';
 import React from 'react';
-
-import { makeStyles } from '@material-ui/core/styles';
-
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-import { Typography } from '@material-ui/core';
+import '../../../../App.css';
+import { makeStyles, Typography, TextField, Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
   container: {
@@ -41,23 +36,21 @@ const useStyles = makeStyles({
   },
   button: {
     backgroundColor: '#fff',
-    color:'#7373AF'
+    color: '#7373AF'
   }
 });
 
-function LoginView({ 
-    state, 
-    handleChange, 
-    handleSubmit
-  }) {
+export default function LoginView({
+  state,
+  handleChange,
+  handleSubmit
+}) {
   const classes = useStyles();
 
   return (
     <div className="App">
       <header className={classes.container}>
-        <Typography
-          variant='h3'
-        >
+        <Typography variant='h3'>
           Admin Login
         </Typography>
         <br />
@@ -68,11 +61,11 @@ function LoginView({
           onChange={handleChange('username')}
           className={classes.loginInput}
         />
-        <TextField 
-          id="password" 
-          label="Password" 
+        <TextField
+          id="password"
+          label="Password"
           type="password"
-          onChange={handleChange('password')} 
+          onChange={handleChange('password')}
           className={classes.loginInput}
         />
         <br />
@@ -87,5 +80,3 @@ function LoginView({
     </div>
   );
 }
-
-export default LoginView;
