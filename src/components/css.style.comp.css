@@ -36,12 +36,11 @@ html {
   height: 10rem;
   margin-left: 5rem; }
 
-.landing__img {
+.landing_img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
-  margin-top: 10rem; }
+  width: 50%; }
 
 .nav {
   margin: 3rem;
@@ -116,12 +115,6 @@ html {
     .story__text-2 {
       text-align: center;
       padding: 5rem; }
-  .story__img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: auto;
-    height: 80rem; }
 
 .nominate {
   margin-top: 10rem; }

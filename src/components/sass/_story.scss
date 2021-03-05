@@ -1,5 +1,5 @@
 .story {
-    margin-top: 50rem;
+    margin-top: 10rem;
     text-align: center;
 
     &__text {
@@ -25,5 +25,13 @@
             text-align: center;
             padding: 5rem;
         }
+    }
+
+    &__img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+        height: 80rem;
     }
 }

@@ -1,5 +1,10 @@
 import react from 'react';
 import logo from '../img/logo.png';
+import logo2 from '../img/logo-2.jpg';
+import facebook from '../img/SVG/facebook-with-circle.svg';
+import insta from '../img/SVG/instagram-with-circle.svg';
+import landingimg from '../img/landing-image.jpg';
+import storyimg from '../img/story-image.jpg';
 import '../css/style.css';
 import Nominate from '.././Nominate';
 
@@ -32,6 +37,8 @@ export default function Home() {
                         </div>
                     </div>
 
+                    <img src={landingimg} alt="radd group pic" class="landing__img" />
+
                     <section class="about" id="about">
 
                         <h3 class="heading-h3">Heres a little bit about RADD!</h3>
@@ -50,6 +57,8 @@ export default function Home() {
                           Temporibus porro quod, magni aut aspernatur qui?</p>
                         </div>
                     </section>
+
+                    <img src={storyimg} alt="radd group pic-2" class="story__img" />
 
                     <section class="story" id="story">
                         <h3 class="heading-h3">Our story</h3>
@@ -70,26 +79,25 @@ export default function Home() {
                     </section>
 
                     <section class="section-form nominate" id="nominate">
-                        <Nominate />   
+                        <Nominate />
                     </section>
 
-                    {/* <footer class="footer" id="footer">
-                  <div class="footer__container">
-                      <img src="img/logo-2.jpg" alt="RADD logo 2" class="footer__logo">
-                      <p class="footer__text">&copy; Copyright 2020 RADD Foundation. This website was developed by Jordan
-                          Nicols</p>
-                      <div class="footer__social">
-
-                          <a href="https://www.instagram.com/raddfoundation/"><svg class="footer__social-instagram">
-                                  <use xlink:href="img/sprite.svg#icon-instagram-with-circle">
-                                      <a href="https://www.instagram.com"></a></use>
-                              </svg></a>
-                          <a href="https://www.facebook.com/TheRaddFoundation"><svg class="footer__social-facebook">
-                                  <use xlink:href="img/sprite.svg#icon-facebook-with-circle"></use>
-                              </svg></a>
-                      </div>
-                  </div>
-              </footer> */}
+                    <footer class="footer" id="footer">
+                        <div class="footer__container">
+                            <img src={logo2} alt="RADD logo 2" class="footer__logo" />
+                            <p class="footer__text">&copy; Copyright 2021 RADD Foundation. This website was developed by Jordan
+                          Nicols, Henry Harvey, and Noah Vandy</p>
+                            <div class="footer__social">
+                                <a href="https://www.instagram.com/raddfoundation/"><svg class="footer__social-instagram">
+                                    <use href={insta}>
+                                        <a href="https://www.instagram.com"></a></use>
+                                </svg></a>
+                                <a href="https://www.facebook.com/TheRaddFoundation"><svg class="footer__social-facebook">
+                                    <use href={facebook}></use>
+                                </svg></a>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
                 <script src="js/script.js"></script>
             </body>
