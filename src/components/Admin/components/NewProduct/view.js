@@ -67,22 +67,22 @@ export default function NewProductView({
         <TextField
           id="name"
           label="Name"
-          value={product.name}
-          onChange={(e) => handleChange(e)}
+          value={product?.name}
+          onChange={handleChange('name')}
           className={styles.input}
         />
         <TextField
           id="price"
           label="Price"
-          value={product.price}
-          onChange={(e) => handleChange(e)}
+          value={product?.price}
+          onChange={handleChange('price')}
           className={styles.input}
         />
         <TextField
           id="picUrl"
           label="Picture Name"
-          value={product.picUrl}
-          onChange={(e) => handleChange(e)}
+          value={product?.picUrl}
+          onChange={handleChange('picUrl')}
           className={styles.input}
         />
         <Button

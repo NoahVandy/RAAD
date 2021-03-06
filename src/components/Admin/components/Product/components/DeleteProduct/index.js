@@ -10,9 +10,12 @@ export default function DeleteProduct({ product }) {
       {
         id: product?.id,
       }).then((response) => {
-        console.log('Edit response', response)
+        console.log('Delete response', response)
         if (response.status === 200) {
-          alert('Successfully edited');
+          alert('Product deletion was successful');
+        }
+        else{
+          alert('Product deletion failed');
         }
       })
   }

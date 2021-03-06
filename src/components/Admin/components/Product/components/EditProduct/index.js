@@ -11,10 +11,13 @@ export default function EditProduct({ productToEdit }) {
   });
 
   useEffect(() => {
-    setProduct({ ...product, id: productToEdit.id });
-    setProduct({ ...product, name: productToEdit.name });
-    setProduct({ ...product, price: productToEdit.price });
-    setProduct({ ...product, picUrl: productToEdit.picUrl });
+    setProduct({
+      ...product,
+      id: productToEdit.id,
+      name: productToEdit.name,
+      price: productToEdit.price,
+      picUrl: productToEdit.picUrl
+    });
   }, [setProduct, product, productToEdit])
 
   const handleChange = (prop) => (event) => {
@@ -22,6 +25,7 @@ export default function EditProduct({ productToEdit }) {
   };
 
   const handleSubmit = () => {
+    console.log('Edit Product', product)
     axios.post(`http://localhost:3001/admin/updateItem`,
       {
         id: product?.id,
@@ -31,7 +35,10 @@ export default function EditProduct({ productToEdit }) {
       }).then((response) => {
         console.log('Edit response', response)
         if (response.status === 200) {
-          alert('Successfully edited');
+          alert('Product edit was successful');
+        }
+        else {
+          alert('Product edit failed');
         }
       })
   }

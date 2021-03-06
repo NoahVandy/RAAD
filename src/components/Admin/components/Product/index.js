@@ -14,7 +14,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Product({ auth }) {
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState({
+    id: '',
+    name: '',
+    price: '',
+    picUrl: ''
+  });
 
   const styles = useStyles();
 
@@ -51,7 +56,7 @@ export default function Product({ auth }) {
         Close
       </Button>
       <EditProduct
-        product={product}
+        productToEdit={product}
       />
       <DeleteProduct
         product={product}

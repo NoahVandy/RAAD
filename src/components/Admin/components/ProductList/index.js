@@ -9,10 +9,16 @@ export default function ProductList() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    // Axios, get all products
+    console.log('Get All Products')
     axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
-      console.log(response)
-      setProducts(response.data);
+      console.log('Get response', response)
+      if (response.status === 200) {
+        //alert('Retreiving all products was successful');
+        setProducts(response.data);
+      }
+      else{
+        alert('Retreiving all products failed');
+      }    
     });
   }, [history])
 

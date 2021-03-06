@@ -32,7 +32,7 @@ export default function Login({ setAuth }) {
           history.push(`/admin`)
         }
         else {
-          alert('invalid login')
+          alert('User login failed');
         }
       });
   }

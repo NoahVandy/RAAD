@@ -14,20 +14,25 @@ export default function NewProduct() {
   };
 
   const handleSubmit = () => {
-    console.log('Create Product')
-    // Axios, create product
+    console.log('Create Product', product)
     axios.post(`http://localhost:3001/admin/createItem`,
       {
         name: product.name,
         price: product.price,
         picUrl: product.picUrl
       }).then((response) => {
-        console.log('Login response', response)
+        console.log('Create response', response)
         if (response.status === 200) {
-          alert('Product Creation was successful');
-          setProduct({ ...product, name: '' });
-          setProduct({ ...product, price: '' });
-          setProduct({ ...product, picUrl: '' });
+          alert('Product creation was successful');
+          setProduct({
+            ...product,
+            name: '',
+            price: '',
+            picUrl: ''
+          });
+        }
+        else {
+          alert('Product creation failed');
         }
       });
   }
