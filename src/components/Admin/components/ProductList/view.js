@@ -44,7 +44,7 @@ export default function DeleteProductView({
               onClick={(event) => handleListItemClick(event, p.id)}
             >
               <ListItemText primary={p.name} />
-              <ListItemText secondary={p.desc} />
+              <ListItemText secondary={p.price} />
               <ListItemText secondary={p.picUrl} />
             </ListItem>
           ))}

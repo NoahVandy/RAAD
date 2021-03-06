@@ -7,22 +7,22 @@ import LoginView from './view';
 export default function Login({ setAuth }) {
   const history = useHistory();
 
-  const [state, setState] = useState({
+  const [user, setUser] = useState({
     username: '',
     password: ''
   });
 
   const handleChange = (prop) => (event) => {
-    setState({ ...state, [prop]: event.target.value });
+    setUser({ ...user, [prop]: event.target.value });
   };
 
   const handleSubmit = () => {
-    console.log('Log in User', state)
+    console.log('Log in User', user)
     // Axios, authenticate user
     axios.post(`http://localhost:3001/admin/login`,
       {
-        username: state?.username,
-        password: state?.password,
+        username: user?.username,
+        password: user?.password,
       }).then((response) => {
         console.log('Login response', response)
         if (response.status === 200) {
@@ -39,7 +39,7 @@ export default function Login({ setAuth }) {
 
   return (
     <LoginView
-      state={state}
+      user={user}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
     />

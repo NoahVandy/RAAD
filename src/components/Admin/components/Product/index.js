@@ -6,15 +6,12 @@ import { makeStyles, Button } from '@material-ui/core';
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
-
   button: {
     marginTop: 10,
     background: 'black',
     color: 'white'
   }
 }));
-
-
 
 export default function Product({ auth }) {
   const [product, setProduct] = useState();
@@ -29,13 +26,10 @@ export default function Product({ auth }) {
 
   const { productId } = useParams();
 
-  // set equal to axios response data
-
   useEffect(() => {
     if (auth.authorized !== true) {
       history.push(`/admin/login`)
     }
-    // Axios, get product
     axios.get(`http://localhost:3001/admin/getItem/${productId}`,
       {
         id: productId
@@ -44,7 +38,7 @@ export default function Product({ auth }) {
         if (response.status === 200) {
           setProduct(response.data[0])
         }
-    });
+      });
   }, [auth, history, productId])
 
   return (
