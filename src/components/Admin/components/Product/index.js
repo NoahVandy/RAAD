@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router'
 import EditProduct from './components/EditProduct';
 import DeleteProduct from './components/DeleteProduct';
 import { makeStyles, Button } from '@material-ui/core';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -13,7 +14,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
+
 export default function Product({ auth }) {
+  const [product, setProduct] = useState();
+
   const styles = useStyles();
 
   const history = useHistory();
@@ -22,31 +27,25 @@ export default function Product({ auth }) {
     history.push(`/admin`)
   }
 
+  const { productId } = useParams();
+
   // set equal to axios response data
-  const product = {
-    id: useParams().productId,
-    name: 'Shirt',
-    price: '$9.99',
-    pictureName: 'shirt.jpg'
-  };
 
   useEffect(() => {
     if (auth.authorized !== true) {
       history.push(`/admin/login`)
     }
     // Axios, get product
-    /*
-      axios.post(`http://localhost:8080/product/get`,
-        {
-          id: useParams().productId
-        }).then((response) => {
-          console.log('Login response', response)
-          if (response.status === 200) {
-            alert('Product Creation was successful');
-          }
-      });
-      */
-  }, [auth, history])
+    axios.get(`http://localhost:3001/admin/getItem/${productId}`,
+      {
+        id: productId
+      }).then((response) => {
+        console.log('Login response', response)
+        if (response.status === 200) {
+          setProduct(response.data[0])
+        }
+    });
+  }, [auth, history, productId])
 
   return (
     <div>

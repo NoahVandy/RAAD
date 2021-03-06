@@ -1,38 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router'
 import ProductListView from './view';
+import axios from 'axios';
 
 export default function ProductList() {
   const history = useHistory();
 
-  const [state, setState] = useState({
-    products: [
-      {
-        name: 'testName1',
-        price: 'testPrice1',
-        pictureName: 'testPictureName1'
-      },
-      {
-        name: 'testName2',
-        price: 'testPrice2',
-        pictureName: 'testPictureName2'
-      },
-      {
-        name: 'testName3',
-        price: 'testPrice3',
-        pictureName: 'testPictureName3'
-      },
-    ]
-  });
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     // Axios, get all products
-    /*
-    axios.get(`http://localhost:3001/product/getAll`).then((response) => {
-      setState(response.data[0]);
+    axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
+      console.log(response)
+      setProducts(response.data);
     });
-    */
-  }, [])
+  }, [history])
 
   const handleListItemClick = (event, productId) => {
     console.log('Selected Product with id', productId)
@@ -41,7 +23,7 @@ export default function ProductList() {
 
   return (
     <ProductListView
-      state={state}
+      products={products}
       handleListItemClick={handleListItemClick}
     />
   );

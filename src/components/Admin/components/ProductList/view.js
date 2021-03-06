@@ -27,7 +27,8 @@ const useStyles = makeStyles({
 
 export default function DeleteProductView({
   state,
-  handleListItemClick
+  handleListItemClick,
+  products
 }) {
   const styles = useStyles();
 
@@ -37,30 +38,16 @@ export default function DeleteProductView({
         Products
       </Typography>
       <List component="nav" className={styles.list}>
-          <ListItem
-            button
-            onClick={(event) => handleListItemClick(event, 1)}
-          >
-            <ListItemText primary={state.products[0].name} />
-            <ListItemText secondary={state.products[0].price} />
-            <ListItemText secondary={state.products[0].pictureName} />
-          </ListItem>
-          <ListItem
-            button
-            onClick={(event) => handleListItemClick(event, 2)}
-          >
-            <ListItemText primary={state.products[1].name} />
-            <ListItemText secondary={state.products[1].price} />
-            <ListItemText secondary={state.products[1].pictureName} />
-          </ListItem>
-          <ListItem
-            button
-            onClick={(event) => handleListItemClick(event, 3)}
-          >
-            <ListItemText primary={state.products[2].name} />
-            <ListItemText secondary={state.products[2].price} />
-            <ListItemText secondary={state.products[2].pictureName} />
-          </ListItem>
+          {products?.map((p) => (
+            <ListItem
+              button
+              onClick={(event) => handleListItemClick(event, p.id)}
+            >
+              <ListItemText primary={p.name} />
+              <ListItemText secondary={p.desc} />
+              <ListItemText secondary={p.picUrl} />
+            </ListItem>
+          ))}
       </List>
     </div>
   );

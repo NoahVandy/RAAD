@@ -1,41 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EditProductView from './view';
+import axios from 'axios'
 
 export default function EditProduct({ product }) {
-  const [state, setState] = useState({
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    pictureName: product.pictureName
-  });
+  console.log(product)
 
-  const handleChange = (prop) => (event) => {
-    setState({ ...state, [prop]: event.target.value });
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState(0.0);
+  const [picUrl, setPicUrl] = useState('');
+
+  useEffect (() => {
+    setName(product?.name);
+    setPrice(product?.price);
+    setPicUrl(product?.picUrl);
+  }, [product])
+
+  const handleChange = (event) => {
+    console.log(event.target.value)
+    if(event.target.id === 'name') {
+      setName(event.target.value);
+    }
+    else if(event.target.id === 'price') {
+      setPrice(event.target.value);
+    }
+    else if(event.target.id === 'picUrl') {
+      setPicUrl(event.target.value);
+    }
   };
 
   const handleSubmit = () => {
-    console.log('Edit Product', state)
     // Axios, edit product
-    /*axios.post(`http://localhost:8080/product/edit`,
-      {
-        id: state?.id,
-        name: state?.name,
-        price: state?.price,
-        pictureName: state?.pictureName,
-      }).then((response) => {
-        console.log('Edit response', response)
-        if (response.status === 200) {
-          alert('Successfully edited');
-        }
-      })
-    */
+    console.log(name);
+    console.log(price);
+    console.log(picUrl)
+    axios.post(`http://localhost:3001/admin/updateItem`,
+    {
+      id: product?.id,
+      name: name,
+      price: price,
+      picUrl: picUrl,
+    }).then((response) => {
+      console.log('Edit response', response)
+      if (response.status === 200) {
+        alert('Successfully edited');
+      }
+    })
   }
 
   return (
     <EditProductView 
-      state={state}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
+      name={name}
+      price={price}
+      picUrl={picUrl}
     />
   )
 }

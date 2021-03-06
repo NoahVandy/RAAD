@@ -19,27 +19,22 @@ export default function Login({ setAuth }) {
   const handleSubmit = () => {
     console.log('Log in User', state)
     // Axios, authenticate user
-    /*axios.post(`http://localhost:8080/user/get/byCredentials`,
+    axios.post(`http://localhost:3001/admin/login`,
       {
         username: state?.username,
         password: state?.password,
       }).then((response) => {
         console.log('Login response', response)
         if (response.status === 200) {
-          setCurrentUser(response?.data);
-          history.push(`/profile/${response.data?.id}`)
+          setAuth({
+            authorized: true,
+          });
+          history.push(`/admin`)
+        }
+        else {
+          alert('invalid login')
         }
       });
-    */
-    if (state?.username === 'admin' && state?.password === 'pass') {
-      setAuth({
-        authorized: true
-      });
-      history.push(`/admin`)
-    }
-    else {
-      alert('Invalid login');
-    }
   }
 
   return (
