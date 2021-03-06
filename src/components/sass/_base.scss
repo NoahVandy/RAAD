@@ -62,10 +62,20 @@ html {
     margin-left: 5rem;
 }
 
-.landing__img {
-    display: block;
+.imgcontainer {
+    background: black;
+    overflow: hidden;
+    width: 77%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
-    margin-top: 10rem;
+    padding: 0;
+    background: $color-primary; /* fallback colour. Make sure this is just one solid colour. */
+    background: -webkit-linear-gradient($color-primary, $color-primary-dark);
+    background: linear-gradient($color-primary, $color-primary-dark); /* The least supported option. */
+}
+
+.landing__img {
+    object-fit: cover;
+    opacity: 0.4;
 }

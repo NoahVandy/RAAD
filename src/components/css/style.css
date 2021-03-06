@@ -36,16 +36,29 @@ html {
   height: 10rem;
   margin-left: 5rem; }
 
-.landing__img {
-  display: block;
+.imgcontainer {
+  background: black;
+  overflow: hidden;
+  width: 77%;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
-  width: 60%;
-  margin-top: 10rem; }
+  padding: 0;
+  background: #e2b060;
+  /* fallback colour. Make sure this is just one solid colour. */
+  background: -webkit-linear-gradient(#e2b060, #b9904e);
+  background: linear-gradient(#e2b060, #b9904e);
+  /* The least supported option. */ }
+
+.landing__img {
+  object-fit: cover;
+  opacity: 0.4; }
 
 .nav {
   margin: 3rem;
-  justify-content: space-between; }
+  justify-content: space-between;
+  border-bottom: 1px solid #b9904e;
+  padding-bottom: 5rem; }
   .nav__logo {
     height: 15rem;
     margin-top: 2rem; }
@@ -117,11 +130,12 @@ html {
       text-align: center;
       padding: 5rem; }
   .story__img {
-    display: block;
+    object-fit: cover;
+    opacity: 0.4;
+    height: 80rem;
     margin-left: auto;
     margin-right: auto;
-    width: auto;
-    height: 80rem; }
+    display: block; }
 
 .nominate {
   margin-top: 10rem; }

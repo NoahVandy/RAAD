@@ -37,7 +37,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <img src={landingimg} alt="radd group pic" class="landing__img" />
+                    <div class="imgcontainer">
+                        <img src={landingimg} alt="radd group pic" class="landing__img" />
+                    </div>
 
                     <section class="about" id="about">
 
@@ -58,7 +60,9 @@ export default function Home() {
                         </div>
                     </section>
 
-                    <img src={storyimg} alt="radd group pic-2" class="story__img" />
+                    <div class="imgcontainer">
+                        <img src={storyimg} alt="radd group pic-2" class="story__img" />
+                    </div>
 
                     <section class="story" id="story">
                         <h3 class="heading-h3">Our story</h3>
