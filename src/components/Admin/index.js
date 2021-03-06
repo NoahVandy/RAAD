@@ -10,8 +10,8 @@ const useStyles = makeStyles((theme) => ({
 
   button: {
     marginTop: 10,
-    background: 'black',
-    color: 'white'
+    background: 'white',
+    color: '#e2b060'
   }
 }));
 

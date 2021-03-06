@@ -4,7 +4,7 @@ import { makeStyles, Typography, TextField, Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
   container: {
-    backgroundColor: '#b9904e',
+    backgroundColor: '#fff',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -17,25 +17,28 @@ const useStyles = makeStyles({
   loginInput: {
     minWidth: 225,
     '& label.Mui-focused': {
-      color: '#F1F0FF',
+      color: '#e2b060',
     },
     '& .MuiInput-underline:after': {
       borderBottomColor: 'white',
     },
     '& label': {
-      color: '#F1F0FF',
+      color: '#e2b060',
     },
     '& .MuiInput-underline:before': {
       borderBottomColor: 'white',
     },
     '& .MuiInputBase-input': {
-      color: '#F1F0FF',
+      color: '#e2b060',
       backgroundColor: 'transparent'
     },
-    color: '#F1F0FF'
+    color: '#e2b060'
+  },
+  loginTitle: {
+    color: '#e2b060'
   },
   button: {
-    backgroundColor: '#fff',
+    backgroundColor: '#e2b060',
     color: '#7373AF'
   }
 });
@@ -50,7 +53,7 @@ export default function LoginView({
   return (
     <div className="App">
       <header className={classes.container}>
-        <Typography variant='h3'>
+        <Typography variant='h3' className={classes.loginTitle}>
           Admin Login
         </Typography>
         <br />
