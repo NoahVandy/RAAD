@@ -54,7 +54,10 @@ const useStyles = makeStyles((theme) => ({
 export default function EditProductView({
   state,
   handleChange,
-  handleSubmit
+  handleSubmit,
+  name,
+  price,
+  picUrl
 }) {
   const styles = useStyles();
 
@@ -67,22 +70,22 @@ export default function EditProductView({
         <TextField
           id="name"
           label="Name"
-          value={state?.name}
-          onChange={handleChange('name')}
+          value={name}
+          onChange={(e) => handleChange(e)}
           className={styles.input}
         />
         <TextField
           id="price"
           label="Price"
-          value={state?.price}
-          onChange={handleChange('price')}
+          value={price}
+          onChange={(e) => handleChange(e)}
           className={styles.input}
         />
         <TextField
-          id="pictureName"
+          id="picUrl"
           label="Picture Name"
-          value={state?.pictureName}
-          onChange={handleChange('pictureName')}
+          value={picUrl}
+          onChange={(e) => handleChange(e)}
           className={styles.input}
         />
         <Button
