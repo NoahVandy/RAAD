@@ -52,7 +52,7 @@ html {
 
 .landing__img {
   object-fit: cover;
-  opacity: 0.4; }
+  opacity: 0.6; }
 
 .nav {
   margin: 3rem;
@@ -131,7 +131,7 @@ html {
       padding: 5rem; }
   .story__img {
     object-fit: cover;
-    opacity: 0.4;
+    opacity: 0.6;
     height: 80rem;
     margin-left: auto;
     margin-right: auto;
