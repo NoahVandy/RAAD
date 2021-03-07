@@ -4,20 +4,24 @@ import { makeStyles, Typography, TextField, Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    height: 32
+    height: 32,
+    color: '#e2b060',
+    marginBottom: 20
   },
   form: {
-    background: '#b9904e',
+    background: '#fff',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'flex-start',
     padding: 50,
     borderRadius: 10,
-    width: 'auto',
+    width: '50%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
     // (4% = footer) + (64px = Search Bar) + (10px = Search Bar margin) + (32px = title) + (40px = margin) + (14px extra)
     height: "calc(96% - 160px)",
-    margin: 20
+    marginTop: 80
   },
   input: {
     width: '75%',
@@ -25,28 +29,28 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 100,
     marginBottom: 25,
     overflow: 'hidden',
-    color: 'white',
+    color: '#e2b060',
     '& .MuiInputBase-input': {
-      color: 'white',
+      color: '#e2b060',
       fontSize: 'calc(5px + 2vmin)',
     },
     '& label': {
-      color: 'white',
+      color: '#e2b060',
       fontSize: 'calc(2vmin)',
     },
     '& .MuiInput-underline:before': {
-      borderBottomColor: 'white',
+      borderBottomColor: '#e2b060',
     },
     '& label.Mui-focused': {
-      color: 'rgb(214, 214, 214)',
+      color: '#e2b060',
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: 'rgb(214, 214, 214)',
+      borderBottomColor: '#e2b060',
     },
   },
   button: {
     marginTop: 10,
-    background: 'black',
+    background: '#e2b060',
     color: 'white'
   }
 }));
@@ -60,10 +64,10 @@ export default function EditProductView({
 
   return (
     <div className="App">
-      <Typography variant="h5" className={styles.title}>
-        Product Edit
-      </Typography>
       <div className={styles.form}>
+        <Typography variant="h5" className={styles.title}>
+          Product Edit
+      </Typography>
         <TextField
           id="name"
           label="Name"

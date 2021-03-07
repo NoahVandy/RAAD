@@ -19,11 +19,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "watch:sass": "node-sass sass/main.scss css/style.css -w",
+    "watch:sass": "node-sass src/components/sass/main.scss src/components/css/style.css -w",
     "devserver": "live-server",
-    "compile:sass": "node-sass sass/main.scss css.style.comp.css",
-    "compress:css": "node-sass css/style.comp.css css/style.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass compress:css"
+    "compile:sass": "node-sass src/components/sass/main.scss src/components/css/style.css",
+    "compress:css": "node-sass src/components/css/style.comp.css src/components/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass"
   },
   "devDependencies": {
     "concat": "^1.0.3",
