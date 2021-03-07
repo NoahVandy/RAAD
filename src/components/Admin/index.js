@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router'
 import NewProduct from './components/NewProduct';
 import ProductList from './components/ProductList';
 import { Switch, Route } from "react-router-dom";
 import Product from './components/Product';
 import { makeStyles, Button } from '@material-ui/core';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
 
@@ -20,11 +21,27 @@ export default function Admin({ auth }) {
 
   const history = useHistory();
 
+  const [products, setProducts] = useState();
+
   useEffect(() => {
     if (auth.authorized !== true) {
       history.push(`/admin/login`)
     }
   }, [auth, history])
+
+  useEffect(() => {
+    console.log('Get All Products')
+    axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
+      console.log('Get response', response)
+      if (response.status === 200) {
+        //alert('Retreiving all products was successful');
+        setProducts(response.data);
+      }
+      else{
+        alert('Retreiving all products failed');
+      }    
+    });
+  }, [history])
 
   const handleSubmit = () => {
     history.push(`/admin/login`)
@@ -39,12 +56,17 @@ export default function Admin({ auth }) {
       >
         Log out
       </Button>
-      <NewProduct />
-      <ProductList />
+      <NewProduct 
+        setProducts={setProducts}
+      />
+      <ProductList
+        products={products}
+      />
 
       <Switch>
         <Route path="/admin/product/:productId">
           <Product
+            setProducts={setProducts}
             auth={auth}
           />
         </Route>

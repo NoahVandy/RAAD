@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function Product({ auth }) {
+export default function Product({ auth, setProducts }) {
   const [product, setProduct] = useState({
     id: '',
     name: '',
@@ -42,6 +42,16 @@ export default function Product({ auth }) {
         console.log('Login response', response)
         if (response.status === 200) {
           setProduct(response.data[0])
+          axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
+          console.log('Get response', response)
+          if (response.status === 200) {
+            //alert('Retreiving all products was successful');
+            setProducts(response.data);
+          }
+          else{
+            alert('Retreiving all products failed');
+          }    
+        });
         }
       });
   }, [auth, history, productId])
@@ -60,6 +70,7 @@ export default function Product({ auth }) {
         setProduct={setProduct}
       />
       <DeleteProduct
+        setProducts={setProducts}
         product={product}
       />
     </div>

@@ -3,7 +3,7 @@ import NewProductView from './view';
 import { useHistory } from 'react-router'
 import axios from 'axios'
 
-export default function NewProduct() {
+export default function NewProduct({ setProducts }) {
   const [product, setProduct] = useState({
     name: '',
     price: '',
@@ -35,6 +35,16 @@ export default function NewProduct() {
           price: '',
           picUrl: ''
         })
+        axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
+        console.log('Get response', response)
+        if (response.status === 200) {
+          //alert('Retreiving all products was successful');
+          setProducts(response.data);
+        }
+        else{
+          alert('Retreiving all products failed');
+        }    
+      });
         history.push('/admin')
       }
     });
