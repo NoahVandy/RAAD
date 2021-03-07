@@ -39,13 +39,10 @@ export default function DeleteProductView({
       <div className={styles.container}>
         <Typography variant="h5" className={styles.title}>
           Product Deletion
-      </Typography>
+        </Typography>
         <Typography variant="h6" className={styles.title}>
-          Are you sure you want to delete the product, "{state.name}"?
-      <Typography variant="h6" className={styles.title}>
-        Are you sure you want to delete the product, "{product?.name}"?
-        master
-      </Typography>
+          Are you sure you want to delete the product, "{product?.name}"?
+        </Typography>
         <div className={styles.btnGroup}>
           <Button
             onClick={handleSubmit}
@@ -53,14 +50,14 @@ export default function DeleteProductView({
             variant="contained"
           >
             Yes
-        </Button>
+          </Button>
           <Button
             onClick={handleNavigate}
             className={styles.button}
             variant="contained"
           >
             No
-        </Button>
+          </Button>
         </div>
       </div>
     </div>

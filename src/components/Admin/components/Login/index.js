@@ -18,7 +18,6 @@ export default function Login({ setAuth }) {
 
   const handleSubmit = () => {
     console.log('Log in User', user)
-    // Axios, authenticate user
 
     const credentials = {
       username: user?.username,
