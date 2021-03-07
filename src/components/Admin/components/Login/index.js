@@ -26,12 +26,7 @@ export default function Login({ setAuth }) {
     }
     axios.post(`http://localhost:3001/admin/login`,
       {
-<<<<<<< Updated upstream
-        username: user?.username,
-        password: user?.password,
-=======
         credentials
->>>>>>> Stashed changes
       }).then((response) => {
         console.log('Login response', response)
         if (response.status === 200) {
