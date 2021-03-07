@@ -14,27 +14,28 @@ export default function NewProduct() {
   };
 
   const handleSubmit = () => {
-    console.log('Create Product', product)
+    console.log('Create Product')
+    // Axios, create product
+
+    const product = {
+      name: name,
+      price: price,
+      picUrl: picUrl
+    }
+
     axios.post(`http://localhost:3001/admin/createItem`,
-      {
-        name: product.name,
-        price: product.price,
-        picUrl: product.picUrl
-      }).then((response) => {
-        console.log('Create response', response)
-        if (response.status === 200) {
-          alert('Product creation was successful');
-          setProduct({
-            ...product,
-            name: '',
-            price: '',
-            picUrl: ''
-          });
-        }
-        else {
-          alert('Product creation failed');
-        }
-      });
+    {
+      product
+    }).then((response) => {
+      console.log('Login response', response)
+      if (response.status === 200) {
+        alert('Product Creation was successful');
+        setName('')
+        setPrice('')
+        setPicUrl('')
+        history.push('/admin')
+      }
+    });
   }
 
   return (
