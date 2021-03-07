@@ -25,22 +25,32 @@ export default function EditProduct({ productToEdit }) {
   };
 
   const handleSubmit = () => {
-    console.log('Edit Product', product)
+    // Axios, edit product
+    console.log(name);
+    console.log(price);
+    console.log(picUrl)
+
+    const apiProduct = {
+      name: name,
+      price: price,
+      picUrl: picUrl,
+      id: product.id
+    }
+
+    console.log("apiProduct", apiProduct);
+
     axios.post(`http://localhost:3001/admin/updateItem`,
-      {
-        id: product?.id,
-        name: product?.name,
-        price: product?.price,
-        picUrl: product?.picUrl,
-      }).then((response) => {
-        console.log('Edit response', response)
-        if (response.status === 200) {
-          alert('Product edit was successful');
-        }
-        else {
-          alert('Product edit failed');
-        }
-      })
+    {
+      product: apiProduct
+    }).then((response) => {
+      console.log('Edit response', response)
+      if (response.status === 200) {
+        alert('Successfully edited');
+      }
+      else if (response.status === 501) {
+        alert('price is not a num')
+      }
+    })
   }
 
   return (
