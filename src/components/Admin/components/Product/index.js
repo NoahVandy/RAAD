@@ -56,7 +56,8 @@ export default function Product({ auth }) {
         Close
       </Button>
       <EditProduct
-        productToEdit={product}
+        product={product}
+        setProduct={setProduct}
       />
       <DeleteProduct
         product={product}

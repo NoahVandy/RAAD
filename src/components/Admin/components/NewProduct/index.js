@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NewProductView from './view';
+import { useHistory } from 'react-router'
 import axios from 'axios'
 
 export default function NewProduct() {
@@ -9,6 +10,8 @@ export default function NewProduct() {
     picUrl: ''
   });
 
+  const history = useHistory();
+
   const handleChange = (prop) => (event) => {
     setProduct({ ...product, [prop]: event.target.value });
   };
@@ -17,22 +20,21 @@ export default function NewProduct() {
     console.log('Create Product')
     // Axios, create product
 
-    const product = {
-      name: name,
-      price: price,
-      picUrl: picUrl
-    }
+    const apiProduct = {...product};
+    console.log(apiProduct);
 
     axios.post(`http://localhost:3001/admin/createItem`,
     {
-      product
+      product: apiProduct
     }).then((response) => {
       console.log('Login response', response)
       if (response.status === 200) {
         alert('Product Creation was successful');
-        setName('')
-        setPrice('')
-        setPicUrl('')
+        setProduct({
+          name: '',
+          price: '',
+          picUrl: ''
+        })
         history.push('/admin')
       }
     });

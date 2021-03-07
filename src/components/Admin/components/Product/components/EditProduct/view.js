@@ -68,21 +68,21 @@ export default function EditProductView({
           id="name"
           label="Name"
           value={product.name}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange('name')}
           className={styles.input}
         />
         <TextField
           id="price"
           label="Price"
           value={product.price}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange('price')}
           className={styles.input}
         />
         <TextField
           id="picUrl"
           label="Picture Name"
           value={product.picUrl}
-          onChange={(e) => handleChange(e)}
+          onChange={handleChange('picUrl')}
           className={styles.input}
         />
         <Button

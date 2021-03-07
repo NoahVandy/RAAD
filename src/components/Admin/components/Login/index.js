@@ -21,8 +21,8 @@ export default function Login({ setAuth }) {
     // Axios, authenticate user
 
     const credentials = {
-      username: state?.username,
-      password: state?.password,
+      username: user?.username,
+      password: user?.password,
     }
     axios.post(`http://localhost:3001/admin/login`,
       {

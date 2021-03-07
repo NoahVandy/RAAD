@@ -2,23 +2,7 @@ import React, { useState, useEffect } from 'react';
 import EditProductView from './view';
 import axios from 'axios'
 
-export default function EditProduct({ productToEdit }) {
-  const [product, setProduct] = useState({
-    id: '',
-    name: '',
-    price: '',
-    picUrl: ''
-  });
-
-  useEffect(() => {
-    setProduct({
-      ...product,
-      id: productToEdit.id,
-      name: productToEdit.name,
-      price: productToEdit.price,
-      picUrl: productToEdit.picUrl
-    });
-  }, [setProduct, product, productToEdit])
+export default function EditProduct({ product, setProduct }) {
 
   const handleChange = (prop) => (event) => {
     setProduct({ ...product, [prop]: event.target.value });
@@ -26,14 +10,11 @@ export default function EditProduct({ productToEdit }) {
 
   const handleSubmit = () => {
     // Axios, edit product
-    console.log(name);
-    console.log(price);
-    console.log(picUrl)
 
     const apiProduct = {
-      name: name,
-      price: price,
-      picUrl: picUrl,
+      name: product.name,
+      price: product.price,
+      picUrl: product.picUrl,
       id: product.id
     }
 
