@@ -7,44 +7,43 @@ import LoginView from './view';
 export default function Login({ setAuth }) {
   const history = useHistory();
 
-  const [state, setState] = useState({
+  const [user, setUser] = useState({
     username: '',
     password: ''
   });
 
   const handleChange = (prop) => (event) => {
-    setState({ ...state, [prop]: event.target.value });
+    setUser({ ...user, [prop]: event.target.value });
   };
 
   const handleSubmit = () => {
-    console.log('Log in User', state)
+    console.log('Log in User', user)
     // Axios, authenticate user
-    /*axios.post(`http://localhost:8080/user/get/byCredentials`,
+
+    const credentials = {
+      username: user?.username,
+      password: user?.password,
+    }
+    axios.post(`http://localhost:3001/admin/login`,
       {
-        username: state?.username,
-        password: state?.password,
+        credentials
       }).then((response) => {
         console.log('Login response', response)
         if (response.status === 200) {
-          setCurrentUser(response?.data);
-          history.push(`/profile/${response.data?.id}`)
+          setAuth({
+            authorized: true,
+          });
+          history.push(`/admin`)
+        }
+        else {
+          alert('User login failed');
         }
       });
-    */
-    if (state?.username === 'admin' && state?.password === 'pass') {
-      setAuth({
-        authorized: true
-      });
-      history.push(`/admin`)
-    }
-    else {
-      alert('Invalid login');
-    }
   }
 
   return (
     <LoginView
-      state={state}
+      user={user}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
     />

@@ -1,38 +1,48 @@
 import React, { useState } from 'react';
 import NewProductView from './view';
+import { useHistory } from 'react-router'
+import axios from 'axios'
 
 export default function NewProduct() {
-  const [state, setState] = useState({
+  const [product, setProduct] = useState({
     name: '',
     price: '',
-    pictureName: ''
+    picUrl: ''
   });
 
+  const history = useHistory();
+
   const handleChange = (prop) => (event) => {
-    setState({ ...state, [prop]: event.target.value });
+    setProduct({ ...product, [prop]: event.target.value });
   };
 
   const handleSubmit = () => {
-    console.log('Create Product', state)
+    console.log('Create Product')
     // Axios, create product
-    /*
-      axios.post(`http://localhost:8080/product/post`,
-      {
-        name: state?.name,
-        price: state?.price,
-        pictureName: state?.pictureName
-      }).then((response) => {
-        console.log('Login response', response)
-        if (response.status === 200) {
-          alert('Product Creation was successful');
-        }
-      });
-    */
+
+    const apiProduct = {...product};
+    console.log(apiProduct);
+
+    axios.post(`http://localhost:3001/admin/createItem`,
+    {
+      product: apiProduct
+    }).then((response) => {
+      console.log('Login response', response)
+      if (response.status === 200) {
+        alert('Product Creation was successful');
+        setProduct({
+          name: '',
+          price: '',
+          picUrl: ''
+        })
+        history.push('/admin')
+      }
+    });
   }
 
   return (
     <NewProductView
-      state={state}
+      product={product}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
     />

@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 });
 
 export default function LoginView({
-  state,
+  user,
   handleChange,
   handleSubmit
 }) {
@@ -60,13 +60,14 @@ export default function LoginView({
         <TextField
           id="username"
           label="Username"
-          value={state?.username}
+          value={user?.username}
           onChange={handleChange('username')}
           className={classes.loginInput}
         />
         <TextField
           id="password"
           label="Password"
+          value={user?.password}
           type="password"
           onChange={handleChange('password')}
           className={classes.loginInput}

@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import DeleteProductView from './view';
+import axios from 'axios';
 
 export default function DeleteProduct({ product }) {
-  const [state, setState] = useState({
-    id: product.id,
-    name: product.name
-  });
 
   const handleSubmit = () => {
-    console.log('Delete Product', state)
-    // Axios, delete product
-    /*axios.post(`http://localhost:8080/product/remove`,
+    console.log('Delete Product', product)
+    axios.post(`http://localhost:3001/admin/deleteItem`,
       {
-        id: state?.id,
+        id: product?.id,
       }).then((response) => {
-        console.log('Edit response', response)
+        console.log('Delete response', response)
         if (response.status === 200) {
-          alert('Successfully edited');
+          alert('Product deletion was successful');
+        }
+        else{
+          alert('Product deletion failed');
         }
       })
-    */
   }
   const handleNavigate = () => {
     // Do nothing for now
@@ -27,8 +25,8 @@ export default function DeleteProduct({ product }) {
   }
 
   return (
-    <DeleteProductView 
-      state={state}
+    <DeleteProductView
+      product={product}
       handleSubmit={handleSubmit}
       handleNavigate={handleNavigate}
     />

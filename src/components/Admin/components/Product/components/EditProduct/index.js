@@ -1,39 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import EditProductView from './view';
+import axios from 'axios'
 
-export default function EditProduct({ product }) {
-  const [state, setState] = useState({
-    id: product.id,
-    name: product.name,
-    price: product.price,
-    pictureName: product.pictureName
-  });
+export default function EditProduct({ product, setProduct }) {
 
   const handleChange = (prop) => (event) => {
-    setState({ ...state, [prop]: event.target.value });
+    setProduct({ ...product, [prop]: event.target.value });
   };
 
   const handleSubmit = () => {
-    console.log('Edit Product', state)
     // Axios, edit product
-    /*axios.post(`http://localhost:8080/product/edit`,
-      {
-        id: state?.id,
-        name: state?.name,
-        price: state?.price,
-        pictureName: state?.pictureName,
-      }).then((response) => {
-        console.log('Edit response', response)
-        if (response.status === 200) {
-          alert('Successfully edited');
-        }
-      })
-    */
+
+    const apiProduct = {
+      name: product.name,
+      price: product.price,
+      picUrl: product.picUrl,
+      id: product.id
+    }
+
+    console.log("apiProduct", apiProduct);
+
+    axios.post(`http://localhost:3001/admin/updateItem`,
+    {
+      product: apiProduct
+    }).then((response) => {
+      console.log('Edit response', response)
+      if (response.status === 200) {
+        alert('Successfully edited');
+      }
+      else if (response.status === 501) {
+        alert('price is not a num')
+      }
+    })
   }
 
   return (
-    <EditProductView 
-      state={state}
+    <EditProductView
+      product={product}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
     />

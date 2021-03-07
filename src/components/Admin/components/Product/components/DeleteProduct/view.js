@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function DeleteProductView({
-  state,
+  product,
   handleSubmit,
   handleNavigate
 }) {
@@ -42,6 +42,9 @@ export default function DeleteProductView({
       </Typography>
         <Typography variant="h6" className={styles.title}>
           Are you sure you want to delete the product, "{state.name}"?
+      <Typography variant="h6" className={styles.title}>
+        Are you sure you want to delete the product, "{product?.name}"?
+        master
       </Typography>
         <div className={styles.btnGroup}>
           <Button
