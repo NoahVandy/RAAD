@@ -39,14 +39,16 @@ const useStyles = makeStyles({
   },
   button: {
     backgroundColor: '#e2b060',
-    color: '#7373AF'
+    color: '#7373AF',
+    marginTop: 10
   }
 });
 
 export default function LoginView({
   user,
   handleChange,
-  handleSubmit
+  handleSubmit,
+  handleNavigate
 }) {
   const classes = useStyles();
 
@@ -79,6 +81,13 @@ export default function LoginView({
           className={classes.button}
         >
           Login
+        </Button>
+        <Button
+          variant="contained"
+          onClick={handleNavigate}
+          className={classes.button}
+        >
+          Exit to site
         </Button>
       </header>
     </div>

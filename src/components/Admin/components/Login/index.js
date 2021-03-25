@@ -40,11 +40,16 @@ export default function Login({ setAuth }) {
       });
   }
 
+  const handleNavigate = () => {
+    history.push(`/`)
+  }
+
   return (
     <LoginView
       user={user}
       handleChange={handleChange}
       handleSubmit={handleSubmit}
+      handleNavigate={handleNavigate}
     />
   )
 }
