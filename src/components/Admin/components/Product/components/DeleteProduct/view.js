@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../../../../App.css';
-import { makeStyles, Typography, Button } from '@material-ui/core';
+import { makeStyles, Button, Slide, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -21,44 +21,51 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-evenly'
   },
   button: {
-    marginTop: 10,
-    background: 'white',
-    color: '#e2b060'
   }
 }));
 
 export default function DeleteProductView({
   product,
-  handleSubmit,
-  handleNavigate
+  handleClickOpen,
+  handleClose,
+  handleCloseYes,
+  open
 }) {
   const styles = useStyles();
 
   return (
     <div className="App">
       <div className={styles.container}>
-        <Typography variant="h5" className={styles.title}>
-          Product Deletion
-        </Typography>
-        <Typography variant="h6" className={styles.title}>
-          Are you sure you want to delete the product, "{product?.name}"?
-        </Typography>
-        <div className={styles.btnGroup}>
-          <Button
-            onClick={handleSubmit}
-            className={styles.button}
-            variant="contained"
-          >
-            Yes
-          </Button>
-          <Button
-            onClick={handleNavigate}
-            className={styles.button}
-            variant="contained"
-          >
-            No
-          </Button>
-        </div>
+        <Button onClick={handleClickOpen}>
+          Delete Product
+        </Button>
+
+        <Dialog
+          open={open}
+          keepMounted
+          onClose={handleClose}
+        >
+          <DialogTitle>{`Are you sure you want to delete the product, "${product?.name}"?`}</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Deleting this product is irreversible
+          </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button
+              onClick={handleCloseYes}
+              className={styles.button}
+            >
+              Yes
+            </Button>
+            <Button
+              onClick={handleClose}
+              className={styles.button}
+            >
+              No
+            </Button>
+          </DialogActions>
+        </Dialog>
       </div>
     </div>
   );

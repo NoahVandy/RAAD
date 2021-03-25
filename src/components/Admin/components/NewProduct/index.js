@@ -29,7 +29,6 @@ export default function NewProduct({ setProducts }) {
     }).then((response) => {
       console.log('Login response', response)
       if (response.status === 200) {
-        alert('Product Creation was successful');
         setProduct({
           name: '',
           price: '',
@@ -38,7 +37,6 @@ export default function NewProduct({ setProducts }) {
         axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
         console.log('Get response', response)
         if (response.status === 200) {
-          //alert('Retreiving all products was successful');
           setProducts(response.data);
         }
         else{

@@ -66,7 +66,7 @@ export default function EditProductView({
     <div className="App">
       <div className={styles.form}>
         <Typography variant="h5" className={styles.title}>
-          Product Edit
+          Product with ID {product?.id}
       </Typography>
         <TextField
           id="name"
@@ -94,7 +94,7 @@ export default function EditProductView({
           className={styles.button}
           variant="contained"
         >
-          Submit
+          Edit
         </Button>
 
       </div>

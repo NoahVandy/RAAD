@@ -1,10 +1,21 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router'
 import DeleteProductView from './view';
 import axios from 'axios';
 
 export default function DeleteProduct({ product, setProducts }) {
+  const history = useHistory();
+  const [open, setOpen] = useState(false);
 
-  const handleSubmit = () => {
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleCloseYes = () => {
     console.log('Delete Product', product)
     axios.post(`http://localhost:3001/admin/deleteItem`,
       {
@@ -12,11 +23,9 @@ export default function DeleteProduct({ product, setProducts }) {
       }).then((response) => {
         console.log('Delete response', response)
         if (response.status === 200) {
-          alert('Product deletion was successful');
           axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
           console.log('Get response', response)
           if (response.status === 200) {
-            //alert('Retreiving all products was successful');
             setProducts(response.data);
           }
           else{
@@ -28,17 +37,17 @@ export default function DeleteProduct({ product, setProducts }) {
           alert('Product deletion failed');
         }
       })
-  }
-  const handleNavigate = () => {
-    // Do nothing for now
-    // Return to list of products
+      setOpen(false);
+      history.push(`/admin`)
   }
 
   return (
     <DeleteProductView
       product={product}
-      handleSubmit={handleSubmit}
-      handleNavigate={handleNavigate}
+      handleClickOpen={handleClickOpen}
+      handleClose={handleClose}
+      handleCloseYes={handleCloseYes}
+      open={open}
     />
   )
 }

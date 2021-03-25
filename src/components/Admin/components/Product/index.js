@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router'
 import EditProduct from './components/EditProduct';
 import DeleteProduct from './components/DeleteProduct';
-import { makeStyles, Button } from '@material-ui/core';
+import { makeStyles, Button, Divider } from '@material-ui/core';
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -45,7 +45,6 @@ export default function Product({ auth, setProducts }) {
           axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
           console.log('Get response', response)
           if (response.status === 200) {
-            //alert('Retreiving all products was successful');
             setProducts(response.data);
           }
           else{
@@ -58,10 +57,10 @@ export default function Product({ auth, setProducts }) {
 
   return (
     <div>
+      <Divider/>
       <Button
         onClick={handleSubmit}
         className={styles.button}
-        variant="contained"
       >
         Close
       </Button>
