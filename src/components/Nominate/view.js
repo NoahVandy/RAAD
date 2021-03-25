@@ -40,7 +40,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function NominateView() {
+export default function NominateView({ from, setFrom, text, setText, handleSubmit }) {
   const classes = useStyles();
 
   return (
@@ -53,26 +53,10 @@ export default function NominateView() {
             <form method="post" action="#" class="contact-form">
               <div class="row">
                 <div class="col span-1-of-3">
-                  <label class="nominate__text" for="name">Name</label>
-                </div>
-                <div class="col span-2-of-3">
-                  <input type="text" name="name" id="name" placeholder="Your name" required />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col span-1-of-3">
-                  <label class="nominate__text" for="name">Childs Name</label>
-                </div>
-                <div class="col span-2-of-3">
-                  <input type="text" name="name" id="name" placeholder="Childs name" required />
-                </div>
-              </div>
-              <div class="row">
-                <div class="col span-1-of-3">
                   <label class="nominate__text" for="email">Email</label>
                 </div>
                 <div class="col span-2-of-3">
-                  <input type="email" name="email" id="email" placeholder="Your email" required />
+                  <input type="email" name="email" id="email" placeholder="Your email" required value={from} onChange={(e) => setFrom(e.target.value)}/>
                 </div>
               </div>
 
@@ -81,7 +65,7 @@ export default function NominateView() {
                   <label class="nominate__text">Your story</label>
                 </div>
                 <div class="col span-2-of-3">
-                  <textarea name="message" placeholder="Your message"></textarea>
+                  <textarea name="message" placeholder="Your story, please include your name and the name of your child" value={text} onChange={(e) => setText(e.target.value)} ></textarea>
                 </div>
               </div>
               <div class="row">
@@ -89,7 +73,7 @@ export default function NominateView() {
                   <label>&nbsp;</label>
                 </div>
                 <div>
-                  <input class="nominate__btn" type="submit" value="Send nomination" />
+                  <input class="nominate__btn" value="Send nomination" onClick={handleSubmit}/>
                 </div>
               </div>
             </form>
