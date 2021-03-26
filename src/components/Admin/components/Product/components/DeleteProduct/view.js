@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../../../../App.css';
-import { makeStyles, Button, Slide, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
+import { makeStyles, Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -12,13 +12,6 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     height: 32
-  },
-  btnGroup: {
-    width: '75%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    display: 'flex',
-    justifyContent: 'space-evenly'
   },
   button: {
   }

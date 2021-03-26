@@ -6,7 +6,8 @@ import insta from '../img/SVG/instagram-with-circle.svg';
 import landingimg from '../img/landing-image.jpg';
 import storyimg from '../img/story-image.jpg';
 import '../css/style.css';
-import Nominate from '.././Nominate';
+import Nominate from './components/Nominate';
+import Shop from './components/Shop';
 
 export default function Home() {
     return (
@@ -79,7 +80,7 @@ export default function Home() {
                     </section>
 
                     <section class="shop" id="shop">
-
+                        <Shop />
                     </section>
 
                     <section class="section-form nominate" id="nominate">
