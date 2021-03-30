@@ -37,7 +37,7 @@ export default function ShopItemView({ product, open, handleClickOpen, handleClo
           <CardMedia
             component='img'
             className='image'
-            image={product.picUrl}
+            image={product.image}
           />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">

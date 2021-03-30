@@ -1,8 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ShopItemView from './view';
+import coozie1 from '../../../../../img/coozie_1.JPG';
+// import coozie2 from '../../../../../img/coozie_1.JPG';
+import mens_black_front from '../../../../../img/mens_black_front.JPG';
+import mens_blue_front from '../../../../../img/mens_blue_front.JPG';
+import mens_white_front from '../../../../../img/mens_white_front.JPG';
+// import coozie1 from '../../../../../img/coozie_1.JPG';
+import mens_green_front from '../../../../../img/mens_green_front.JPG'
+import womens_black_front from '../../../../../img/womens_black_front.JPG'
+import womens_blue_front from '../../../../../img/womens_blue_front.JPG'
+import womens_green_front from '../../../../../img/womens_green_front.JPG'
 
 export default function ShopItem({ product }) {
   const [open, setOpen] = useState(false);
+
+  if(product.name === 'Test 1') {
+    product.image = coozie1;
+  }
+  if(product.name === 'Test 2') {
+    product.image = mens_black_front;
+  }
+  if(product.name === 'Test 3') {
+    product.image = mens_blue_front;
+  }
+  if(product.name === 'Test 4') {
+    product.image = mens_green_front;
+  }
+  if(product.name === 'Test 5') {
+    product.image = mens_white_front;
+  }
+  if(product.name === 'Test 6') {
+    product.image = womens_black_front;
+  }
+  if(product.name === 'Test 7') {
+    product.image = womens_blue_front;
+  }
+  if(product.name === 'Test 8') {
+    product.image = womens_green_front;
+  }
+
 
   const handleClickOpen = () => {
     setOpen(true);
