@@ -17,7 +17,7 @@ export default function Shop() {
         alert('Retreiving all products failed');
       }
     });
-  }, [])
+  })
 
   return (
     <div>
