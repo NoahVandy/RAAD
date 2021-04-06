@@ -24,11 +24,12 @@ export default function Shop() {
       <div class="row">
         <h3 class="heading-h3 nominate__heading">Shop</h3>
       </div>
-      <div style={{ display: "flex", flexFlow: "row wrap", margin: "0 5px" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gridColumnGap: "50px", gridRowGap: "50px", marginLeft: "200px" }}>
         {products?.map((product, idx) => (
           <ShopItem
             key={idx}
             product={product}
+            style={{flex: "1 1 160px" }}
           />
         ))}
       </div>
