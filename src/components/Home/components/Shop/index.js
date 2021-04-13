@@ -8,7 +8,7 @@ export default function Shop() {
 
   useEffect(() => {
     console.log('Get All Products')
-    axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
+    axios.get(`https://raad-api.herokuapp.com/admin/getItems`).then((response) => {
       console.log('Get response', response)
       if (response.status === 200) {
         setProducts(response.data);
