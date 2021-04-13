@@ -23,7 +23,7 @@ export default function NewProduct({ setProducts }) {
     const apiProduct = {...product};
     console.log(apiProduct);
 
-    axios.post(`http://localhost:3001/admin/createItem`,
+    axios.post(`https://raad-api.herokuapp.com/admin/createItem`,
     {
       product: apiProduct
     }).then((response) => {
