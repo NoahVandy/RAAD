@@ -23,7 +23,7 @@ export default function Login({ setAuth }) {
       username: user?.username,
       password: user?.password,
     }
-    axios.post(`http://localhost:3001/admin/login`,
+    axios.post(`https://raad-api.herokuapp.com/admin/login`,
       {
         credentials
       }).then((response) => {
