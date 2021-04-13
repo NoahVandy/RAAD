@@ -20,7 +20,7 @@ export default function EditProduct({ product, setProduct }) {
 
     console.log("apiProduct", apiProduct);
 
-    axios.post(`http://localhost:3001/admin/updateItem`,
+    axios.post(`https://raad-api.herokuapp.com/admin/updateItem`,
       {
         product: product
       }).then((response) => {
