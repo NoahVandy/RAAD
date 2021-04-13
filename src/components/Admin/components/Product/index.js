@@ -35,7 +35,7 @@ export default function Product({ auth, setProducts }) {
     if (auth.authorized !== true) {
       history.push(`/admin/login`)
     }
-    axios.get(`http://localhost:3001/admin/getItem/${productId}`,
+    axios.get(`https://raad-api.herokuapp.com/admin/getItem/${productId}`,
       {
         id: productId
       }).then((response) => {
