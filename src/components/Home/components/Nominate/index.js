@@ -17,7 +17,7 @@ export default function Nominate({ currentUser }) {
 
     console.log(emailPayload)
 
-    axios.post('http://localhost:3001/admin/nominate', emailPayload)
+    axios.post('https://raad-api.herokuapp.com/admin/nominate', emailPayload)
     .then((res) => {
       if(res.status === 200) {
         console.log(res.data);
