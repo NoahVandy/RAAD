@@ -42,7 +42,7 @@ export default function Product({ auth, setProducts }) {
         console.log('Login response', response)
         if (response.status === 200) {
           setProduct(response.data[0])
-          axios.get(`http://localhost:3001/admin/getItems`).then((response) => {
+          axios.get(`https://raad-api.herokuapp.com/admin/getItems`).then((response) => {
           console.log('Get response', response)
           if (response.status === 200) {
             setProducts(response.data);
